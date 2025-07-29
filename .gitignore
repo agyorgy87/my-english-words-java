@@ -4,6 +4,12 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+### Exceptions ###
+.mvn/wrapper/
+.idea/
+HELP.md
+src/main/resources/application.properties
+
 ### STS ###
 .apt_generated
 .classpath
