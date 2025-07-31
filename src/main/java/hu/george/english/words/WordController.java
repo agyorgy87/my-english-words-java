@@ -22,7 +22,14 @@ public class WordController {
     }
 
     @GetMapping(
-            path = "/allWords"
+            path = "/random-english-word"
+    )
+    public Word getRandomEnglishWord() {
+        return wordRepository.findRandomWord().orElse(null);
+    }
+
+    @GetMapping(
+            path = "/all-words"
     )
     public List<Word> findAll(){return wordRepository.findAll();}
 

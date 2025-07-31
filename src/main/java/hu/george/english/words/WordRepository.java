@@ -8,5 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface WordRepository extends JpaRepository<Word, Integer> {
-    
+
+    @Query(value = "SELECT * FROM word ORDER BY RAND() LIMIT 1", nativeQuery = true)
+    Optional<Word> findRandomWord();
+
 }
