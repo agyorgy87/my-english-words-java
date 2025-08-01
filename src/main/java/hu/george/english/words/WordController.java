@@ -29,6 +29,13 @@ public class WordController {
     }
 
     @GetMapping(
+            path ="/get-hungarian-word/{id}"
+    )
+    public Word getHungarianWordById(@PathVariable int id) {
+        return wordRepository.findById(id).orElse(null);
+    }
+
+    @GetMapping(
             path = "/all-words"
     )
     public List<Word> findAll(){return wordRepository.findAll();}

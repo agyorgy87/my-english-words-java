@@ -16,6 +16,7 @@ public class Word {
 
     @Id
     @GeneratedValue
+    @JsonProperty("id")
     private int id;
 
     @JsonProperty("englishWord")
