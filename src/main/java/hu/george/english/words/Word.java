@@ -25,5 +25,11 @@ public class Word {
     @JsonProperty("hungarianWord")
     @Column(name = "hungarian_word")
     private String hungarianWord;
+    @Column(name = "used_word")
+    private boolean used;
+
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
 
 }
