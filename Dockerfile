@@ -1,12 +1,12 @@
-# 1. Build stage
+# 1) Build
 FROM maven:3.9.6-eclipse-temurin-17 AS build
-WORKDIR /app
-COPY . .
-RUN ./mvnw clean package -DskipTests
+WORKDIR /build
+COPY pom.xml .
+RUN mvn -B -q dependency:go-offline/src
+RUN mvn -B -DskipTests clean package
 
-# 2. Run stage
-FROM eclipse-temurin:17-jdk
+# 2)
+FROM eclipse-temurin:17-jre
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY --from=build /build/target/*.jar app.jar
+CMD ["sh","-c","java -jar app.jar --server.port=${PORT:-8080}"]
