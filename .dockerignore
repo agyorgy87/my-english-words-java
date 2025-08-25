@@ -1,0 +1,13 @@
+# Maven target
+target
+
+# Git, IDE
+.git
+.gitignore
+.idea
+*.iml
+*.md
+
+# Maven wrapper cache
+.mvn
+mvnw.cmd
